@@ -17,7 +17,7 @@ Runs on H2 in-memory database.
    GET http://localhost:8005/api/v1/users/self -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhYUBhYS5jb20iLCJpYXQiOj" (use token from login)
 
 6. Create a blog item (no authentication is developed for this one)
-   POST http://localhost:8005/api/v1/blogs -b {"title": "Some title", "htmlContent": "<h1>Hello!</h1>"}
+   POST http://localhost:8005/api/v1/blogs -b {"title": "Some title", "htmlContent": "some html content here..."}
 
 7. Get all blogs
    GET http://localhost:8005/api/v1/blogs (optional query params ?page=0&size=10)

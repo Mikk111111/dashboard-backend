@@ -1,6 +1,6 @@
 Runs on H2 in-memory database.
 
-1. Create USER role
+1. Create USER role\n
    POST http://localhost:8005/api/v1/roles/create -b {"name": "USER"}
 
 2. Create a user (USER role will be automatically assigned)

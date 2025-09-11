@@ -9,7 +9,7 @@ import com.gigatownpartners.dashboard.exceptions.EmailExistsException;
 import com.gigatownpartners.dashboard.repositories.RoleRepository;
 import com.gigatownpartners.dashboard.repositories.UserRepository;
 import com.gigatownpartners.dashboard.utils.PasswordValidator;
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;

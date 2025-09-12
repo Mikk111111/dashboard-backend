@@ -23,4 +23,4 @@ Runs on H2 in-memory database.
    GET http://localhost:8005/api/v1/blogs (optional query params ?page=0&size=10)
 
 8. Get a single blog<br />
-   GET http://localhost:8005/api/v1/blogs/<id>
+   GET http://localhost:8005/api/v1/blogs/{id}

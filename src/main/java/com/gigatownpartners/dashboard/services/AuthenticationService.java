@@ -28,6 +28,18 @@ public class AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
 
+    public AuthenticationService(
+            UserRepository userRepository,
+            RoleRepository roleRepository,
+            AuthenticationManager authenticationManager,
+            PasswordEncoder passwordEncoder
+    ) {
+        this.authenticationManager = authenticationManager;
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
     public void signup(RegisterUserDto input) {
         if (!PasswordValidator.isValid(input.getPassword())) {
             throw new BadCredentialsException("Password must be at least 8 characters long, include uppercase, lowercase, a digit, and a special character.");

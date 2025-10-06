@@ -66,3 +66,29 @@ public class AuthenticationService {
 
         return userRepository.findByEmail(input.getEmail()).orElseThrow();
     }
+
+    public void changePassword(UpdatePasswordUserDto input) {
+        User user = userRepository.findByEmail(input.getEmail()).orElseThrow();
+
+        if (!passwordEncoder.matches(input.getOldPassword(), user.getPassword())) {
+            throw new BadCredentialsException("Old password is incorrect");
+        }
+
+        if (passwordEncoder.matches(input.getNewPassword(), user.getPassword())) {
+            throw new BadCredentialsException("New password must be different from the old password");
+        }
+
+        if (!PasswordValidator.isValid(input.getNewPassword())) {
+            throw new BadCredentialsException("Password must be at least 8 characters long, include uppercase, lowercase, a digit, and a special character.");
+        }
+
+        user.setPassword(passwordEncoder.encode(input.getNewPassword()));
+        user.setPasswordExpiration(passwordExpiration());
+
+        userRepository.save(user);
+    }
+
+    private Date passwordExpiration() {
+        return DateUtils.addMonths(new Date(), 6);
+    }
+}
